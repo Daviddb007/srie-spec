@@ -1,0 +1,119 @@
+{
+  "discovery_id": "disc_stonelytics_001",
+  "timestamp": "2026-07-15T14:00:20Z",
+  "modo": "full",
+  "afirmaciones": [
+    {
+      "afirmacion": "El proyecto usa Flask 3.1 como framework web",
+      "confidence": 0.99,
+      "hallucination_risk": 0.01,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "requirements.txt", "tipo": "dependencia_explicita", "peso": 0.40},
+        {"fuente": "app.py", "tipo": "import_directo", "peso": 0.35},
+        {"fuente": "config.py", "tipo": "configuracion_framework", "peso": 0.25}
+      ]
+    },
+    {
+      "afirmacion": "El proyecto usa SQLAlchemy como ORM",
+      "confidence": 0.99,
+      "hallucination_risk": 0.01,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "requirements.txt", "tipo": "dependencia_explicita"},
+        {"fuente": "core/extensions.py", "tipo": "import_directo"},
+        {"fuente": "core/models/base.py", "tipo": "implementacion_directa"}
+      ]
+    },
+    {
+      "afirmacion": "El proyecto tiene 12 capabilities funcionales",
+      "confidence": 0.95,
+      "hallucination_risk": 0.05,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "modules/", "tipo": "estructura_directorios"},
+        {"fuente": "app.py", "tipo": "registro_blueprints"}
+      ]
+    },
+    {
+      "afirmacion": "El proyecto tiene secretos hardcodeados",
+      "confidence": 0.98,
+      "hallucination_risk": 0.02,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "deploy.bat", "tipo": "contenido_secreto", "peso": 0.40},
+        {"fuente": "config.py", "tipo": "fallback_secreto", "peso": 0.35},
+        {"fuente": "start.bat", "tipo": "contenido_secreto", "peso": 0.25}
+      ]
+    },
+    {
+      "afirmacion": "La arquitectura es Service Layer",
+      "confidence": 0.85,
+      "hallucination_risk": 0.15,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "core/services/", "tipo": "patron_arquitectura"},
+        {"fuente": "modules/*/routes.py", "tipo": "patron_implementacion"},
+        {"fuente": "core/models/", "tipo": "separacion_capas"}
+      ]
+    },
+    {
+      "afirmacion": "El proyecto tiene 74 endpoints de API",
+      "confidence": 0.90,
+      "hallucination_risk": 0.10,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "modules/*/routes.py", "tipo": "conteo_decoradores"}
+      ]
+    },
+    {
+      "afirmacion": "El despliegue es manual sin CI/CD",
+      "confidence": 0.97,
+      "hallucination_risk": 0.03,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "deploy.bat", "tipo": "script_manual"},
+        {"fuente": ".github/ no existe", "tipo": "ausencia_ci_cd"}
+      ]
+    },
+    {
+      "afirmacion": "No existe ARCHITECTURE.md",
+      "confidence": 1.00,
+      "hallucination_risk": 0.00,
+      "clasificacion": "ALTA",
+      "evidencia": [
+        {"fuente": "filesystem", "tipo": "archivo_no_existe"}
+      ]
+    },
+    {
+      "afirmacion": "No existe README.md",
+      "confidence": 1.00,
+      "hallucination_risk": 0.00,
+      "clasificacion": "ALTA"
+    },
+    {
+      "afirmacion": "El proyecto usa arquitectura hexagonal",
+      "confidence": 0.25,
+      "hallucination_risk": 0.75,
+      "clasificacion": "BAJA",
+      "evidencia": [
+        {"fuente": "core/domain/ no existe", "tipo": "ausencia_capa_domain"},
+        {"fuente": "core/application/ no existe", "tipo": "ausencia_capa_application"}
+      ],
+      "evidencia_faltante": [
+        "No se encontraron puertos (interfaces)",
+        "No se encontraron adaptadores",
+        "No se encontraron repositorios como interfaz"
+      ],
+      "nota": "Arquitectura Service Layer detectada, no hexagonal."
+    }
+  ],
+  "metricas_globales": {
+    "total_afirmaciones": 10,
+    "confirmadas_alta": 8,
+    "confirmadas_media": 0,
+    "confirmadas_baja": 1,
+    "especulativas": 1,
+    "confidence_promedio": 0.89
+  }
+}

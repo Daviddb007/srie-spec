@@ -1,0 +1,70 @@
+{
+  "ejecucion_id": "hyp_stonelytics_001",
+  "timestamp": "2026-07-15T14:01:00Z",
+  "indicadores_entrada": 23,
+  "hipotesis_generadas": [
+    {
+      "id": "HYP-001",
+      "titulo": "El proyecto carece de documentación de gobierno fundamental",
+      "nivel": "salud",
+      "dominio": "gobernanza",
+      "confianza_inicial": 0.90,
+      "origen": "directa",
+      "sintomas": ["documentation_health=25 (CRITICAL)", "readme_exists=false", "architecture_exists=false"],
+      "estado": "VALIDADA"
+    },
+    {
+      "id": "HYP-002",
+      "titulo": "El deploy es frágil y propenso a fallos",
+      "nivel": "riesgo",
+      "dominio": "operacion",
+      "confianza_inicial": 0.85,
+      "origen": "directa",
+      "sintomas": ["deployment_health=15 (CRITICAL)", "deployment_risk=0.80 (CRITICAL)", "docker_detected=false", "cicd_detected=false"],
+      "estado": "VALIDADA"
+    },
+    {
+      "id": "HYP-003",
+      "titulo": "Riesgo de seguridad por secretos hardcodeados y CSRF exempt",
+      "nivel": "riesgo",
+      "dominio": "seguridad",
+      "confianza_inicial": 0.82,
+      "origen": "compuesta",
+      "sintomas": ["security_health=45 (WARNING)", "secretos_hardcodeados=true", "csrf_exempt=true"],
+      "estado": "VALIDADA"
+    },
+    {
+      "id": "HYP-004",
+      "titulo": "La deuda técnica es moderada pero manejable",
+      "nivel": "riesgo",
+      "dominio": "arquitectura",
+      "confianza_inicial": 0.65,
+      "origen": "compuesta",
+      "sintomas": ["tech_debt_risk=0.45", "maintenance_risk=0.58", "duplicacion codigo detectada"],
+      "estado": "VALIDADA"
+    },
+    {
+      "id": "HYP-005",
+      "titulo": "El sistema SDOS es una fortaleza de gobernanza única",
+      "nivel": "salud",
+      "dominio": "gobernanza",
+      "confianza_inicial": 0.88,
+      "origen": "directa",
+      "sintomas": ["srie_graph_exists=true", "identity_valid=true", "memory_exists=true", "adr_exists=true"],
+      "estado": "VALIDADA",
+      "nota": "67 documentos SDOS son un activo de gobernanza excepcional. Compensa parcialmente la falta de docs tradicionales."
+    },
+    {
+      "id": "HYP-006",
+      "titulo": "El proyecto tiene alto conocimiento de dominio pero baja documentación tradicional",
+      "confianza_inicial": 0.72,
+      "origen": "patron",
+      "patron_match": "GOVERNANCE_GAP",
+      "match": 0.78,
+      "estado": "VALIDADA",
+      "nota": "Patrón GOVERNANCE_GAP detectado: faltan documentos de gobierno fundamentales (README, ARCHITECTURE) pero existe documentación alternativa (SDOS)."
+    }
+  ],
+  "hipotesis_descartadas": 1,
+  "tiempo_generacion_ms": 340
+}

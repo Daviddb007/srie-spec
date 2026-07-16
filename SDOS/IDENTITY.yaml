@@ -1,0 +1,22 @@
+# SRIE Identity — Stonelytics Studio
+domain_id: "DOM-STONELYTICS-001"
+nombre: "Stonelytics Studio"
+tipo: "standalone"
+version: "1.0.0"
+estado: "ACTIVE"
+creado: "2026-07-15T14:00:00Z"
+authority:
+  nivel: "Domain"
+  gobernado_por: null
+  puede_crear_domains: false
+  puede_crear_capabilities: true
+  puede_modificar_registry: "local"
+fingerprint: "sha256:a1b2c3d4e5f6..."
+organization:
+  id: "ORG-LAB-001"
+  nombre: "SRIE Lab"
+federation:
+  network_id: null
+  registry: "local"
+  graph: "local"
+  memory: "local"

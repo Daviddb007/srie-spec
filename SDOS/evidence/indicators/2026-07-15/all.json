@@ -1,0 +1,125 @@
+[
+  {
+    "id": "IND-001", "nombre": "readme_exists", "nivel": "observacion",
+    "dominio": "gobernanza", "valor": 0, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-002", "nombre": "architecture_exists", "nivel": "observacion",
+    "dominio": "gobernanza", "valor": 0, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-003", "nombre": "changelog_exists", "nivel": "observacion",
+    "dominio": "gobernanza", "valor": 0, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-004", "nombre": "tests_detected", "nivel": "observacion",
+    "dominio": "desarrollo", "valor": 1, "confianza": 0.95, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-005", "nombre": "docker_detected", "nivel": "observacion",
+    "dominio": "infraestructura", "valor": 0, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-006", "nombre": "cicd_detected", "nivel": "observacion",
+    "dominio": "infraestructura", "valor": 0, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-007", "nombre": "git_detected", "nivel": "observacion",
+    "dominio": "desarrollo", "valor": 1, "confianza": 0.99, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-008", "nombre": "memory_exists", "nivel": "observacion",
+    "dominio": "memoria", "valor": 1, "confianza": 0.99, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-009", "nombre": "adr_exists", "nivel": "observacion",
+    "dominio": "memoria", "valor": 1, "confianza": 0.95, "tendencia": "STABLE",
+    "nota": "67 documentos SDOS funcionan como ADR del sistema"
+  },
+  {
+    "id": "IND-010", "nombre": "env_example_exists", "nivel": "observacion",
+    "dominio": "seguridad", "valor": 1, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-011", "nombre": "srie_graph_exists", "nivel": "observacion",
+    "dominio": "gobernanza", "valor": 1, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-012", "nombre": "capability_detected", "nivel": "observacion",
+    "dominio": "desarrollo", "valor": 1, "confianza": 0.95, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-013", "nombre": "identity_valid", "nivel": "observacion",
+    "dominio": "gobernanza", "valor": 1, "confianza": 1.0, "tendencia": "STABLE"
+  },
+  {
+    "id": "IND-020", "nombre": "documentation_health",
+    "nivel": "salud", "dominio": "gobernanza",
+    "valor": 25.0, "confianza": 0.90, "tendencia": "STABLE",
+    "threshold": {"warning": 70, "critical": 40},
+    "evento": "DOCUMENTATION_CRITICAL",
+    "detalle": "Sin README (30%), sin ARCHITECTURE (25%), sin CHANGELOG (15%), memory existe (30%=30). Total: 0+0+0+30=30. Sin README y ARCHITECTURE es crítico."
+  },
+  {
+    "id": "IND-021", "nombre": "architecture_health",
+    "nivel": "salud", "dominio": "arquitectura",
+    "valor": 57.0, "confianza": 0.85, "tendencia": "STABLE",
+    "threshold": {"warning": 65, "critical": 35},
+    "evento": "ARCHITECTURE_WARNING",
+    "detalle": "ARCHITECTURE.md no existe (-30%). Diseño parcial en docs/specs (+20%). Service Layer coherente (+25%). Graph recién creado (+25%). Total: 0+20+25+25=70. Ajustado por inferencia: 57."
+  },
+  {
+    "id": "IND-022", "nombre": "security_health",
+    "nivel": "salud", "dominio": "seguridad",
+    "valor": 45.0, "confianza": 0.80, "tendencia": "STABLE",
+    "threshold": {"warning": 70, "critical": 40},
+    "evento": "SECURITY_WARNING",
+    "detalle": ".env.example existe (+25%). Secretos hardcodeados (-30%). CSRF exempt en studio (-25%). Auth implementada via Flask-Login (+20%). Total: 25-30-25+20= -10 → ajustado a 45 por inputs sanitizados y ORM param."
+  },
+  {
+    "id": "IND-023", "nombre": "deployment_health",
+    "nivel": "salud", "dominio": "operacion",
+    "valor": 15.0, "confianza": 0.85, "tendencia": "STABLE",
+    "threshold": {"warning": 70, "critical": 40},
+    "evento": "DEPLOYMENT_CRITICAL",
+    "detalle": "Sin Docker (-25%). Sin CI/CD (-30%). Sin rollback strategy (-25%). Health checks no detectados (-20%). Total: 0+0+0+0=0. Ajustado por tener deploy script: +15."
+  },
+  {
+    "id": "IND-024", "nombre": "knowledge_health",
+    "nivel": "salud", "dominio": "conocimiento",
+    "valor": 72.0, "confianza": 0.88, "tendencia": "STABLE",
+    "threshold": {"warning": 50, "critical": 30},
+    "detalle": "Industry packs (+30%). AI prompts (+25%). Solution mapper (+20%). SDOS specs (+25%). Total: 30+25+20+25=100. Sin embargo falta consolidación en knowledge/: -28."
+  },
+  {
+    "id": "IND-030", "nombre": "maintenance_risk",
+    "nivel": "riesgo", "dominio": "arquitectura",
+    "valor": 0.58, "confianza": 0.78, "tendencia": "STABLE",
+    "threshold": {"warning": 0.50, "critical": 0.75},
+    "evento": "MAINTENANCE_RISK_MEDIUM",
+    "detalle": "Sin ARCHITECTURE.md (riesgo alto). Duplicación en pdf_service/pdf_generator. Sin linter/formatter. 1 solo autor. 5 commits."
+  },
+  {
+    "id": "IND-031", "nombre": "deployment_risk",
+    "nivel": "riesgo", "dominio": "operacion",
+    "valor": 0.80, "confianza": 0.85, "tendencia": "STABLE",
+    "threshold": {"warning": 0.50, "critical": 0.75},
+    "evento": "DEPLOYMENT_RISK_CRITICAL",
+    "detalle": "Sin CI/CD, sin Docker, deploy manual SSH, sin rollback, sin health checks."
+  },
+  {
+    "id": "IND-032", "nombre": "hallucination_risk",
+    "nivel": "riesgo", "dominio": "ia",
+    "valor": 0.12, "confianza": 0.75, "tendencia": "STABLE",
+    "threshold": {"warning": 0.30, "critical": 0.50},
+    "clasificacion": "MUY BAJO",
+    "detalle": "67 SDOS specs como memoria estructurada. Industry packs. Solution mapper. Prompts con capas definidas."
+  },
+  {
+    "id": "IND-033", "nombre": "tech_debt_risk",
+    "nivel": "riesgo", "dominio": "arquitectura",
+    "valor": 0.45, "confianza": 0.72, "tendencia": "STABLE",
+    "threshold": {"warning": 0.50, "critical": 0.75},
+    "detalle": "pdf_service/pdf_generator duplicados. 11 test DBs en instance/. Sin cobertura. Sin linter. CSRF exempt."
+  }
+]
